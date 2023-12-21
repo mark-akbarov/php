@@ -27,13 +27,13 @@
         die("Connection Failed");
     }
 
-    # Raw SQL to be executed
+    // Raw SQL to be executed
     $sql = "INSERT INTO blog (title, body) VALUES ('$title', '$body')";
     
-    # Validate inputs and perform SQL operation
+    // Validate inputs and perform SQL operation
     if ($title && $body) {
         if (pg_query($conn, $sql)){
-            header("Location: retrieve.php");        
+            echo "Blog is created.";        
         } else {
             echo 'Error'. pg_last_error($conn);
         }
